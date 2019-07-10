@@ -1,0 +1,30 @@
+<html>
+    <body>
+        <h1 id="t">HELLO</h1>
+        <input type="text" id="txt" onkeyup="try2()" onblur="try1()">
+    </body>
+<script>
+ function try1(){
+var x=document.getElementById("txt").value;
+alert(x);
+}
+function try2(){
+var x=document.getElementById("txt").value;
+document.getElementById("t").innerHTML=x;
+}
+   function sum(){
+    var s=0;
+    for (var i=0;i<arguments.length;i++)
+    {
+        s=s+arguments[i];
+    }
+    return s;
+
+}    
+function show(){
+var s1=sum(2.145550218521,100,12,32,3,32,32,32);
+   alert(s1);
+}
+
+    </script>
+</html>

@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>json data form url</title>
+    </head>
+        <script src="angular.min.js"></script>
+        <script>
+        var myapp=angular.module('mousam',[]);
+        myapp.controller("sharma",function($scope,$http){
+$scope.message="welcome";
+$scope.states=undefined;
+$scope.cities=undefined;
+
+    $http.get('http://beangate.co.in/indian-states.php')
+.then(function(response){
+    $scope.states=response.data;
+    },function(error){
+    $scope.message=error.statusText;
+});
+
+$scope.load=function(){
+    $scope.s=document.getElementById("i").value;
+$scope.cu='http://beangate.co.in/indian-cities.php?state='+$scope.s;
+$http.get($scope.cu)
+.then(function(response){
+    $scope.cities=response.data;
+    
+},function(error){
+    $scope.message=error.statusText;
+});
+}
+});
+
+        </script>
+<body ng-app="mousam">
+    <div ng-controller="sharma">
+        <h3>{{message}}</h3>
+        State:  <select id="i" ng-model="st" ng-click="load()">
+                <option ng-repeat="(k,v) in states" value="{{k}}">{{v}}</option>
+             </select>
+            <br>
+            <h1 id="1"></h1>
+            <br>
+             cities:  <select ng-model="ct">
+                    <option ng-repeat="(k,v) in cities">{{v}}</option>
+                 </select>
+    <br><br>
+    </div>
+</body>
+</html>

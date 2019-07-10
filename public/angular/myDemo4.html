@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+<html lang="en-US">
+<script src="angular.min.js"></script>
+<script>
+//define a module
+var myApp=angular.module("demoApp",[]);
+myApp.controller("demoController",function($scope){
+   $scope.message="welcome";
+   $scope.cts='bpl';
+   $scope.chk=true;
+   $scope.rbtn='Female';
+   $scope.data='Demo Text';
+});
+
+</script>
+
+<body ng-app="demoApp" ng-controller="demoController">
+    <h2>{{message}}</h2>
+
+<hr>
+
+<input type="text" ng-model="data" >
+<p>{{data}}</p>
+<hr>
+<input type="radio" ng-model="rbtn" value="Male">Male 
+<input type="radio" ng-model="rbtn" value="Female">Female 
+<p>{{rbtn}}</p>
+
+<hr>
+<input type="checkbox" ng-model="chk" value="Yes">Is Nri 
+<p>{{chk}}</p>
+<div ng-show="chk"><h1>Ng Show Demo</h1></div>
+<hr>
+<select ng-model="cts">
+    <option >Indore</option>
+    <option value="bpl">Bhopal</option>
+</select>
+<p>{{cts}}</p>
+</body>
+</html>

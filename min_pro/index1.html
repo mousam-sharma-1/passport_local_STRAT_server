@@ -1,0 +1,52 @@
+<html>  
+    <head>
+            <script src="./index1.js"></script>
+    </head>
+<body>  
+
+    <div id="body" style="background-color:rgb(222, 255, 192)">
+    
+      <form name= "my_form" onsubmit="return validateName()">
+          <br><br>
+          <span id="name_label" style="background-color:yellow">student name</span> <!-- input  box -->  
+          <input type="text" name="student_name" id="student_name" style="background-color:yellow">
+          <br><br>
+          <span id="age_label" style="background-color:yellow">age</span> 
+          <!-- input  box -->
+          <input type="text" name="student_age" id="student_age" style="background-color:yellow">
+          <br><br>
+          Gender <!-- input radio button -->
+          <input type="radio" name="gender" value="m" checked="checked">M
+          <input type="radio" name="gender" value="f">F
+          <br><br>
+
+          City <!-- select options -->
+          <select id="city" name="city">
+            <option value="">Select</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Chennai">Chennai</option>
+          </select>
+          <br><br>
+
+          Hobby   <!-- check box -->
+          <input type="checkbox" name="painting" id="painting" value="Painting">Painting
+          <input type="checkbox" name="dancing" id="dancing" value="Dancing">Dancing
+          <input type="checkbox" name="sports" id="sports" value="Sports">Sport
+                  <br><br>
+     
+            <!-- submit button -->
+          <button type="submit" id="student_submit">Submit</button>
+      </form>
+
+      <div>
+            <!-- error messages with proper span -->
+            Name: <span id="name_value"></span><br>
+            Age: <span id="age_value"></span><br>
+            City: <span id="city_value"></span><br>
+            Hobby: <span id="hobbies_value"></span><br>
+      </div>
+    </div>
+</body>  
+</html> 

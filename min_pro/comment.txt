@@ -1,0 +1,194 @@
+//     function rider_validation(){
+//          var txtname=document.getElementById('n_field');
+//          var mobnum=document.getElementById('m_field');
+//          var age=document.getElementById('age');
+//          var work=document.getElementById('w_field');
+//          var email=document.getElementById('e_field');
+//          var id1=document.getElementById('i_field1');
+//          var id2=document.getElementById('i_field2');
+//          var id3=document.getElementById('i_field3');
+//          var img=document.getElementById('img_field');
+
+        
+//          var regx=/[a-zA-Z]+$/;
+
+//   //         if(txtname.value !=""){           //rider name
+//   //           if(txtname.value.length <= 2){
+//   //            document.getElementById('sp1').innerHTML="**should be greater than 2 character";
+//   //             document.getElementById('sp1').style.color="red";
+//   //             return false;
+//   //     }
+//   //     if(!regx.test(txtname.value)){
+//   //         document.getElementById('sp1').innerHTML="**no number or symbols are allowed";
+//   //             document.getElementById('sp1').style.color="red";
+//   //         return false;
+//   //     }
+//   //  //   document.getElementById('sp1').style.display="none";
+//   //   }
+            
+//   //     else{
+//   //       document.getElementById('sp1').innerHTML="**empty";
+//   //            document.getElementById('sp1').style.color="red";
+//   //            return false;
+//   //     }
+
+//       if(mobnum.value !=""){           //rider mobile num
+//             if(mobnum.value.length != 10){
+//              document.getElementById('sp2').innerHTML="**should be of 10 character";
+//               document.getElementById('sp2').style.color="red";
+//               return false;
+//       }
+// // if(mobnum.value !="" || mobnum.value.length != 10){
+// //   document.getElementById('sp2').style.display="none";
+
+// // }
+//   }
+//     else{
+//         document.getElementById('sp2').innerHTML="**empty";
+//              document.getElementById('sp2').style.color="red";
+//              return false;
+//       }
+//       if(age.value !=""){           //rider Age
+//             if(age.value <= 17){
+//              document.getElementById('sp3').innerHTML="**should be of atleast 18 ";
+//               document.getElementById('sp3').style.color="red";
+//               return false;
+//       }
+//   //    document.getElementById('sp3').style.display="none";
+//     }
+//     else{
+//         document.getElementById('sp3').innerHTML="**empty";
+//              document.getElementById('sp3').style.color="red";
+//              return false;
+//       }
+//       if(work.value ==""){           //rider work
+//         document.getElementById('sp4').innerHTML="**not selected";
+//              document.getElementById('sp4').style.color="red";
+//              return false;
+//       }
+//       else{
+//       //  document.getElementById('sp4').style.display="none";
+//       }
+//       if(email.value ==""){           //rider email
+//         document.getElementById('sp5').innerHTML="**empty";
+//              document.getElementById('sp5').style.color="red";
+//              return false;
+//       }
+//       else{
+//        // document.getElementById('sp5').style.display="none";
+//       }
+//       if(id1.value !="" || id2.value !="" || id3.value !=""){           //rider adhar card number
+//         if(id1.value.length != 4){
+//              document.getElementById('sp6').innerHTML="**id should be of 12 character";
+//               document.getElementById('sp6').style.color="red";
+//               return false;
+//       }if(id2.value.length != 4){
+//              document.getElementById('sp6').innerHTML="**id should be of 12 character";
+//               document.getElementById('sp6').style.color="red";
+//               return false;
+//       }if(id3.value.length != 4){
+//              document.getElementById('sp6').innerHTML="**id should be of 12 character";
+//               document.getElementById('sp6').style.color="red";
+//               return false;
+//       }
+//      // document.getElementById('sp6').style.display="none";
+//       }
+//       else{
+//         document.getElementById('sp6').innerHTML="**empty";
+//              document.getElementById('sp6').style.color="red";
+//              return false;
+//       }
+//       if(img.value ==""){           //rider id-image
+//         document.getElementById('sp7').innerHTML="**empty";
+//              document.getElementById('sp7').style.color="red";
+//              return false;
+//       }
+//       else{
+//       //  document.getElementById('sp7').style.display="none";
+//       }
+// }
+
+// function driver_validation(){                                             //driver validation
+
+//             var txtname_d=document.getElementById('dn_field');
+//             var mobnum_d=document.getElementById('dm_field');
+//             var vtype_d=document.getElementById('v_field');
+//             var vmodel_d=document.getElementById('mod_field');
+//             var vnum_d=document.getElementById('vn_field');
+//             var licnum_d=document.getElementById('l_field');
+//             var img_d=document.getElementById('imgd_field');
+
+//             var regx=/[a-zA-Z]+$/;
+        
+
+//             if(txtname_d.value !=""){           //driver name
+//             if(txtname_d.value.length <= 2){
+//              document.getElementById('sp8').innerHTML="**should be greater than 2 character";
+//               document.getElementById('sp8').style.color="red";
+//               return false;
+//       }
+//       if(!regx.test(txtname_d.value)){
+//           document.getElementById('sp8').innerHTML="**no number or symbols are allowed";
+//               document.getElementById('sp8').style.color="red";
+//           return false;
+//       }
+//     }
+            
+//       else{
+//         document.getElementById('sp8').innerHTML="**empty";
+//              document.getElementById('sp8').style.color="red";
+//              return false;
+//       }
+//       if(mobnum_d.value !=""){           //driver mobile num
+//             if(mobnum_d.value.length != 10){
+//              document.getElementById('sp9').innerHTML="**should be of 10 character";
+//               document.getElementById('sp9').style.color="red";
+//               return false;
+//       }
+//     }
+//     else{
+//         document.getElementById('sp9').innerHTML="**empty";
+//              document.getElementById('sp9').style.color="red";
+//              return false;
+//       }
+//       if(vtype_d.value ==""){           //driver vehicle type
+//         document.getElementById('sp10').innerHTML="**empty";
+//              document.getElementById('sp10').style.color="red";
+//              return false;
+//       }
+//       if(vmodel_d.value ==""){           //driver vehicle model
+//         document.getElementById('sp11').innerHTML="**empty";
+//              document.getElementById('sp11').style.color="red";
+//              return false;
+//       }
+//       if(vnum_d.value !=""){           //driver mobile num
+//             if(vnum_d.value.length != 8){
+//              document.getElementById('sp12').innerHTML="**should be of 8 character";
+//               document.getElementById('sp12').style.color="red";
+//               return false;
+//       }
+//     }
+//     else{
+//         document.getElementById('sp12').innerHTML="**empty";
+//              document.getElementById('sp12').style.color="red";
+//              return false;
+//       }
+//       if(licnum_d.value !=""){           //driver licence number
+//         if(licnum_d.value.length != 12){
+//              document.getElementById('sp13').innerHTML="**licence number should be of 12 character";
+//               document.getElementById('sp13').style.color="red";
+//               return false;
+//       }
+//       }
+//       else{
+//         document.getElementById('sp13').innerHTML="**empty";
+//              document.getElementById('sp13').style.color="red";
+//              return false;
+//       }
+//       if(img_d.value ==""){           //driver id-image
+//         document.getElementById('sp14').innerHTML="**empty";
+//              document.getElementById('sp14').style.color="red";
+//              return false;
+//       }
+//         }
+    

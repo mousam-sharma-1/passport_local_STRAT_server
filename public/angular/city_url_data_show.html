@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>json data form url</title>
+    </head>
+        <script src="angular.min.js"></script>
+        <script>
+        var myapp=angular.module('mousam',[]);
+        myapp.controller("sharma",function($scope,$http){
+           $scope.message="welcome";
+$scope.states=undefined;
+$scope.load=function(){
+$scope.a=document.getElementById('i').value;
+$scope.city='http://beangate.co.in/indian-cities.php?state=';
+$http.get($scope.city+$scope.a).then(function(response){
+    $scope.states=response.data;
+},function(error){
+    $scope.message=error.statusText;
+});
+}
+});
+        </script>
+<body ng-app="mousam">
+    <div ng-controller="sharma">
+        <h3>{{message}}</h3>
+        State:  <select id="i" ng-model="st">
+                <option>MP</option>
+                <option>UP</option>
+                <option>GJ</option>
+             </select>
+    Search for cities: <input type="text" ng-model="fdata">
+    <br><br>
+    <button ng-click="load()">DONE</button>
+
+    <br><br>
+        <table border="1px" width="400px" ng-if="states">
+    <tr ng-repeat="(k,v) in states|filter:fdata|orderBy:st">
+        <td>{{k+1}}</td><td>{{v}}</td>
+    </tr>
+</table>
+    </div>
+</body>
+</html>

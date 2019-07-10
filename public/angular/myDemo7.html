@@ -1,0 +1,52 @@
+ <!DOCTYPE html>
+<html lang="en-US">
+<script src="angular.min.js"></script>
+<script>
+//define a module
+var myApp=angular.module("demoApp",[]);
+myApp.controller("demoController",function($scope){
+var arr=[
+        {name:'ram',city:'indore',salary:43000},
+        {name:'mohan',city:'Akola',salary:3000,quals:[{title:'BE',year:2001},{title:'ME',year:2003}]},
+        {name:'suresh',city:'varanasi',salary:2000},
+        {name:'punit',city:'mumbai',salary:23000,quals:[{title:'BCA',year:2010},{title:'MCA',year:2013},{title:'M.Tech',year:2015}]}
+        ];
+$scope.emps=arr;
+});
+</script>
+<body ng-app="demoApp" ng-controller="demoController">
+    <table border="1" width="400">
+        <tr><th>#</th><th>Name</th><th>City</th><th>Salary</th><th>Grade</th><th>HRA</th>
+            <th>Qualification</th></tr>
+        <tr ng-repeat='e in emps'>
+            <td>{{$index+1}}</td>
+            <td>{{e.name}}</td>
+            <td>{{e.city}}</td>
+            <td>{{e.salary}}</td>
+            <td><div ng-if="e.salary>=10000">A</div>
+                <div ng-if="e.salary<10000">B</div></td>
+            <td>
+                <div ng-switch="e.city">
+                    <div ng-switch-when="mumbai">1500</div>
+                    <div ng-switch-when="pune">1200</div>
+                    <div ng-switch-when="indore">1000</div>
+                    <div ng-switch-default>700</div>
+                </div>
+            </td>
+            <td>
+                <div ng-if="e.quals">
+                <ul>
+                <li ng-repeat="q in e.quals">
+                {{q.title}} ,{{q.year}}  
+                </li>    
+            </ul>
+                </div>
+         <div ng-if="!e.quals">
+             No Qualification Found
+         </div>
+        </td>
+
+        </tr>
+	</table>
+</body>
+</html>

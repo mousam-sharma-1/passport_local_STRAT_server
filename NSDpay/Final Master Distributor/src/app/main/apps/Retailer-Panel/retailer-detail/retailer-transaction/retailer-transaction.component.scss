@@ -1,0 +1,29 @@
+table {
+  width: 100% !important;
+}
+
+.data-table{
+    width: 95%;
+    margin: 20px auto;
+
+}
+.dis-container{
+    width:100%;
+}
+
+.example-container {
+    float:right;
+    width: 40%;
+    margin: 12px;
+  }
+
+  .example-container > * {
+    width: 40%;
+  float:right;
+    margin: 5px;
+  }
+.heading{
+  width: 50%;
+  float: left;
+  margin:3%;
+}

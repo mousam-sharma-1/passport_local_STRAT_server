@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>json data of states (sir wala code)</title>
+    </head>
+        <script src="angular.min.js"></script>
+        <script>
+        var myapp=angular.module('mousam',[]);
+        myapp.controller("sharma",function($scope,$http){
+$scope.message="welcome";
+$scope.states=undefined;
+$scope.load=function(){
+$http.get('http://beangate.co.in/indian-states.php'
+).then(function(response){
+    $scope.states=response.data;
+},function(error){
+    $scope.message=error.statusText;
+});
+}
+});
+        </script>
+<body ng-app="mousam">
+    <div ng-controller="sharma">
+        <h3>{{message}}</h3><br>
+        <button ng-click="load()">Load</button>
+        <br>
+    <table border="1px" width="400px" ng-if="states">
+    <tr ng-repeat="(k,v) in states">
+        <td>{{k}}</td><td>{{v}}</td>
+    </tr>
+</table>
+    </div>
+</body>
+</html>

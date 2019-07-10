@@ -1,0 +1,51 @@
+<html>
+<head>
+    <script src="angular.min.js">
+        </script>
+</head>
+<script>
+    var myapp=angular.module("msapp",[]);
+    myapp.controller("myct",function ($scope) {
+        $scope.msg="hello!!";
+        $scope.name="ram";
+        $scope.cts=[{'name':"mousam1",'city':"ujjain4","salary":"20000",'date':"2015-09-02"},
+        {'name':"mousam2",'city':"indore",'salary':"20000",'date':"2015-03-02"},
+        {'name':"mousam3",'city':"ujjain2",'salary':"30000",'date':"2015-06-02"},{'name':"mousam4",'city':"bhopal",'salary':"30000",'date':"2015-01-02"},
+        {'name':"mousam5",'city':"devas2",'salary':"40000",'date':"2015-04-02"},{'name':"mousam6",'city':"ujjain3",'salary':"20000",'date':"2015-01-12"},
+        {'name':"mousam7",'city':"ujjain",'salary':"30000",'date':"2015-05-07"},{'name':"mousam8",'city':"devas",'salary':"20000",'date':"2015-01-21"},
+        {'name':"mousam9",'city':"indore2",'salary':"20000",'date':"2015-05-02"}]
+        $scope.aa=0;
+       $scope.show=function(){
+       // $scope.msg1="helloooooo";
+        $scope.aa++;
+
+        }});
+
+        </script>
+        <body ng-app="msapp" ng-controller="myct">
+            <h1>{{msg}} {{name | uppercase}} {{msg1}} {{aa}}</h1>
+            <input type="text" ng-model="name">
+                <table border="1px">
+                   <tr><th>S.No.</th><th>Name</th><th>City</th><th>Salary</th><th>Salary Type 2</th><th>Date</th><th>Date Type 2</th></tr>
+                    <tr ng-repeat='e in cts | orderBy:select'>
+                    <td>{{$index+1}}</td><td>{{e.name | uppercase}}</td>
+                    <td>{{e.city}}</td>
+                    <td>{{e.salary | number:2}}</td>
+                    <td>{{e.salary | currency}}</td>
+                    <td>{{e.date | date : 'dd/MM/yyyy'}}</td>
+                    <td>{{e.date | date}}</td>
+                   
+                </tr>
+                    </table>
+                </tr><br>
+            <input type="text" ng-model="name">name
+            <input type="text" ng-model="city">city
+            <input type="text" ng-model="date">date
+                <select id="orderBy" name="orderBy" value="select" ng-model="select">
+                    <option value="name">NAME</option>
+                    <option value="city">CITY</option>
+                    <option value="date">DATE</option>
+                    </select>
+                <button ng-click="show()">click</button>
+                </body>
+                    </html>

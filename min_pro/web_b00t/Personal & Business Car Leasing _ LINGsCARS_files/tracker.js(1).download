@@ -1,0 +1,204 @@
+window.lc = window.lc || {};lc.cookieExpiration = 365;lc.cookieName = "lingscars-chat";lc.pingInterval = 10;lc.url = "hp.lingscars.com";lc.query = "&t=1553278784979";var lcTracker = {
+
+    /**
+     * Store the current visitor ID.
+     */
+    visitorId: 0,
+
+    /**
+     * Perform an ajax request with jsonp.
+     *
+     * @param url
+     * @param data
+     * @param callback
+     */
+    ajax: function (url, data, callback) {
+
+        var parameters = '',
+            cbnum = Math.random().toString(16).slice(2),
+            script = document.createElement('script');
+
+        // Getting provided callback function
+        if (typeof callback !== 'function') {
+            callback = false;
+        }
+
+        // Creating url string from the parameters
+        if (data instanceof Object) {
+            var key;
+            for (key in data) {
+                if (parameters.length > 0) parameters = parameters + '&';
+                parameters = parameters + key + '=' + data[key];
+            }
+        } else {
+            parameters = data;
+        }
+
+        // Append callback
+        if (parameters.length > 0) {
+            parameters = '?' + parameters + '&callback=cb' + cbnum;
+        } else {
+            parameters = '?callback=cb' + cbnum;
+        }
+
+        window['cb' + cbnum] = function (data) {
+            try {
+                if (callback) {
+                    callback(data);
+                }
+            } finally {
+                delete window['cb' + cbnum];
+                script.parentNode.removeChild(script);
+            }
+        };
+
+        script.src = url + parameters;
+        document.body.appendChild(script);
+    },
+
+    /**
+     * Parse the cookie value and return it.
+     *
+     * @param s
+     * @returns {string}
+     */
+    cookieParseValue: function (s) {
+        if (s.indexOf('"') === 0) {
+            s = s.slice(1, -1).replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+        }
+        try {
+            return decodeURIComponent(s.replace(/\+/g, ' '));
+        } catch (e) {}
+    },
+
+    /**
+     * Read a cookie's value.
+     *
+     * @param key
+     * @returns {undefined|string}
+     */
+    cookieRead: function (key) {
+        var cookies = document.cookie ? document.cookie.split('; ') : [],
+            result = undefined;
+        for (var i = 0, l = cookies.length; i < l; i++) {
+            var parts = cookies[i].split('='),
+                name = decodeURIComponent(parts.shift()),
+                cookie = parts.join('=');
+
+            if (key && key === name) {
+                result = this.cookieParseValue(cookie);
+                break;
+            }
+        }
+
+        return result;
+    },
+
+    /**
+     * Remove a cookie.
+     *
+     * @param key
+     * @returns {string}
+     */
+    cookieRemove: function (key) {
+        return this.cookieWrite(key, null, -1);
+    },
+
+    /**
+     * Are cookies supported, and I mean REALLLLLLYYYYY supported?
+     *
+     * @returns {boolean}
+     */
+    cookieSupport: function () {
+        var cookieEnabled = !!(navigator.cookieEnabled);
+
+        if (typeof navigator.cookieEnabled === 'undefined' && !cookieEnabled) {
+            document.cookie = 'testcookie';
+            cookieEnabled = (document.cookie.indexOf('testcookie') > -1);
+        }
+
+        return cookieEnabled;
+    },
+
+    /**
+     * Set document cookie.
+     *
+     * @param key
+     * @param value
+     * @param expiry
+     * @returns {string}
+     */
+    cookieWrite: function (key, value, expiry) {
+        if (typeof expiry === 'undefined') {
+            expiry = lc.cookieExpiration;
+        }
+        var expires = new Date();
+        expires.setTime(expires + (expiry * 864e+5));
+
+        return (document.cookie = [
+            encodeURIComponent(key), '=', String(value),
+            '; expires=' + expires.toUTCString()
+        ].join(''));
+    },
+
+    /**
+     * Initialise the tracker.
+     */
+    init: function () {
+
+        // Load the current visitor ID
+        if (typeof this.cookieRead(lc.cookieName) !== 'undefined' && this.cookieRead(lc.cookieName) != '') {
+            this.visitorId = this.cookieRead(lc.cookieName);
+        }
+
+        // Record the visit
+        this.recordVisit();
+
+        // Ping at intervals
+        setInterval(function () {
+            lcTracker.ping();
+        }, lc.pingInterval * 1000);
+
+    },
+
+    /**
+     * Ping at intervals.
+     */
+    ping: function () {
+        this.ajax('//' + lc.url + '/visitor/ping', {
+            visitorId: this.visitorId
+        });
+    },
+
+    /**
+     * Record the visit as an initial link.
+     */
+    recordVisit: function () {
+
+        // Perform the request
+        var that = this;
+        this.ajax('//' + lc.url + '/visitor/track', 'url=' + encodeURIComponent(window.location.pathname) + '&' +
+            'visitorId=' + encodeURIComponent(that.visitorId) + '&' +
+            'cookiesSupported=' + encodeURIComponent(that.cookieSupport()) + '&' +
+            'referrer=' + encodeURIComponent(document.referrer) +
+            (typeof lc.query !== 'undefined' ? lc.query : ''),
+            function (response) {
+                if (typeof response.visitor === 'object') {
+                    that.visitorId = response.visitor.id;
+                    lc.visitorIp = response.visitor.ip;
+                    lc.visitorParentId = response.visitor.parent_id;
+                    that.cookieRemove(lc.cookieName);
+                    that.cookieWrite(lc.cookieName, that.visitorId);
+                } else {
+                    that.visitorId = 0;
+                    lc.visitorIp = '0.0.0.0';
+                    lc.visitorParentId = 0;
+                }
+                lc.visitorId = that.visitorId;
+            });
+
+    }
+
+};
+
+lcTracker.init();

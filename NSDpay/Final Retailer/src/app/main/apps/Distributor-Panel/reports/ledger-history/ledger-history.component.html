@@ -1,0 +1,124 @@
+
+
+
+                   <div class="container dis-container ">
+                        <div class="mat-elevation-z8 data-table" >
+
+                          <h1 class="heading"> Orders History</h1>
+                              <div class="example-container">
+                                  <mat-form-field>
+                                        <input matInput placeholder="Search here" style="width:35%;">
+                                        <mat-icon  style="float:right;">search</mat-icon>
+                                      </mat-form-field></div>
+
+<div class="container">
+                                            <mat-form-field style="/*margin: 5px 10px;margin-left: 10%;*" color="accent">
+                                              <mat-label>From Date</mat-label>
+                                              <input matInput [matDatepicker]="picker1">
+                                              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                              <mat-datepicker #picker1></mat-datepicker>
+                                            </mat-form-field>
+
+                                            <mat-form-field style="margin: 5px 20px;" color="accent">
+                                              <mat-label>To Date</mat-label>
+                                              <input matInput [matDatepicker]="picker2">
+                                              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                              <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                                            </mat-form-field>
+                                               <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+
+                        <mat-form-field style="width: 25%">
+                            <mat-select formControlName="select_status" placeholder="Select Status" required>
+                                <mat-option [value]="'Prepaid Mobile'">
+                                    Success
+                                </mat-option>
+                                <mat-option [value]="'DTH'">
+                                    Pending
+                                </mat-option>
+                                <mat-option [value]="'Datacard'">
+                                    Approved
+                                </mat-option>
+                                <mat-option [value]="'Postpaid Mobile'">
+                                   Failed
+                                </mat-option>
+                                <mat-option [value]="'Postpaid Mobile'">
+                                   Reject
+                                </mat-option>
+                                <mat-option [value]="'Postpaid Mobile'">
+                                   TDS
+                                </mat-option>
+                            </mat-select>
+                            <!-- <mat-icon matSuffix class="secondary-text">outlined_flag</mat-icon> -->
+                            
+                        </mat-form-field>
+  <button style="margin: 0 15px;"  mat-raised-button color="primary">Submit</button>
+                    </div>
+                       
+
+                                            </div>
+
+                                <table mat-table [dataSource]="dataSource" >
+
+                                  <!-- Position Column -->
+                                  <ng-container matColumnDef="name">
+                                    <th mat-header-cell *matHeaderCellDef style="font-weight:bold;">Retailer Name </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                  </ng-container>
+
+                                  <!-- Name Column -->
+                                  <ng-container matColumnDef="description">
+                                    <th mat-header-cell *matHeaderCellDef style="font-weight:bold;">Description</th>
+                                    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                                  </ng-container>
+
+                                  <!-- Weight Column -->
+                                  <ng-container matColumnDef="transid">
+                                    <th mat-header-cell *matHeaderCellDef style="font-weight:bold;"> Transaction id </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.transid}} </td>
+                                  </ng-container>
+
+                                  <!-- Symbol Column -->
+                                  <ng-container matColumnDef="orderamt" >
+                                        <th mat-header-cell *matHeaderCellDef style="font-weight:bold;">Ord Amt</th>
+                                        <td mat-cell *matCellDef="let element"> {{element.orderamt}} </td>
+                                      </ng-container>
+
+                                       <!-- Symbol Column -->
+                                  <ng-container matColumnDef="cramt">
+                                        <th mat-header-cell *matHeaderCellDef style="font-weight:bold;">CR Amt </th>
+                                        <td mat-cell *matCellDef="let element"> {{element.cramt}} </td>
+                                      </ng-container>
+
+                                      <!-- Symbol Column -->
+                                  <ng-container matColumnDef="dramt">
+                                        <th mat-header-cell *matHeaderCellDef style="font-weight:bold;">DR Amt</th>
+                                        <td mat-cell *matCellDef="let element"> {{element.dramt}} </td>
+                                      </ng-container>
+
+                                      <!-- Symbol Column -->
+                                  <ng-container matColumnDef="opbalance">
+                                        <th mat-header-cell *matHeaderCellDef style="font-weight:bold;">Ope.Bal</th>
+                                        <td mat-cell *matCellDef="let element"> {{element.opbalance}} </td>
+                                      </ng-container>
+
+                                      <!-- Symbol Column -->
+                                  <ng-container matColumnDef="date">
+                                        <th mat-header-cell *matHeaderCellDef style="font-weight:bold;">Trans Date</th>
+                                        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                                      </ng-container>
+
+                                      <!-- Symbol Column -->
+                                  <ng-container matColumnDef="status">
+                                        <th mat-header-cell *matHeaderCellDef style="font-weight:bold;">Status </th>
+                                        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                                      </ng-container>
+
+
+                                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                                </table>
+
+                                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                              </div>
+
+                            </div>

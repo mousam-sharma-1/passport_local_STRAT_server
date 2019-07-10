@@ -1,0 +1,85 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #c0b7b7;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .mat-elevation-z4{
+    box-shadow: #555 !important;
+  }
+
+  .center{
+    text-align: center;
+  }
+  
+  .services{
+      width:30%;
+      float:left;
+      margin:10px;
+  }
+ 
+  .dp img{
+    width :50%;
+    margin: 0px;
+  }
+
+  .userdetails h3,.userdetails p{
+    margin: 3px auto !important;
+      }
+
+  .options{
+    display: inline-grid;
+    grid-template-columns: 50% 50%;
+    margin: 3% 0;
+ }
+.myacc-options{
+  display: inline-grid;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  margin: 3% 0;
+}
+ .op-items{
+  margin-top: 5%;
+  color: black;
+  background-color: #555;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding: 3%;
+}
+
+.op-items:hover{
+  background-color: black;
+}
+
+.op-items a{
+  color: white;
+  font-weight:700;
+}
+
+.op-items a:hover{
+  text-decoration: none !important;
+}
+.card-head{
+ margin:-2%;
+}
+.card-head h1{
+  margin: 0;
+  padding:0;
+}
+
+.myacc-items{
+  margin-top:45%;
+  margin-left:5%;
+  margin-right:5%;
+
+}
+.myacc-cap{
+  font-weight: 700;
+  font-size: 15px;
+  margin-top: 15px;
+}

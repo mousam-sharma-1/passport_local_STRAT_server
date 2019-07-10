@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Creating_new_filter</title>
+    <script src="angular.min.js"></script>
+    </head>
+    <script>
+    var myapp=angular.module('demoapp',[]);
+
+ myapp.filter('rupees',function(){
+return function(arg){
+    return 'rs.'+arg.toFixed(2);
+}
+});
+myapp.filter("initCap",function(){
+    return function(arg){
+        var arr=arg.split(" ");
+        var ans= "";
+       
+       // return arg.charAt(0).toUpperCase()+arg.slice(                        // 1)  only 1st letter capital {Mousam}
+
+
+    for(var i=0;i<arr.length;i++){                                           // 2)  every 1st letter of a word is capital in a sentance{Mousam Sharma}
+       ans=ans+ arr[i].charAt(0).toUpperCase()+arr[i].slice(1)+" ";
+        }
+       
+        /* for(var i=0;i<arr.length;i++){                                           // 3)  for every letter capital {MOUSAM}
+       ans=ans+ arr[i].charAt(0).toUpperCase()+arr[i].slice(1);
+        }*/
+
+    return ans;
+}
+});
+myapp.controller("sharma",function($scope){
+        $scope.arr=[
+        {'name':"mousam1 sharma",'city':"ujjain4",salary:20000,'date':"2015-09-02"},
+        {'name':"vipin_ji sharma",'city':"indore",salary:45000,'date':"2015-03-02"},
+        {'name':"manali_ji sharma",'city':"ujjain2",salary:40000,'date':"2015-06-02"},
+        {'name':"ram sharma",'city':"bhopal",salary:30000,'date':"2015-01-02"},
+        {'name':"sakshi sharma",'city':"devas2",salary:40000,'date':"2015-04-02"},
+        {'name':"sarthak sharma",'city':"ujjain3",salary:25000,'date':"2015-01-12"}
+        ];
+  })
+
+    </script>
+    <body ng-app="demoapp" ng-controller="sharma">
+        <table border="1px">  
+                <tr><th>Name</th><th>Salary</th><th>City</th>
+            <tr ng-repeat="n in arr">
+            <td>{{n.name|initCap}}</td>
+            <td>{{n.salary|rupees}}</td>
+            <td>{{n.city}}</td>
+        </tr>
+        </table>
+</body>
+</html>

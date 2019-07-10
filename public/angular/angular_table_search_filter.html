@@ -1,0 +1,39 @@
+    <html>
+    <title>searching_filter_in_table</title>
+  <head>
+        <script src='angular.min.js'></script> 
+    </head>
+    <script>
+    var myapp=angular.module('mousam',[])
+    myapp.controller("sharma",function($scope){
+        $scope.arr=[{'sno':101,'fname':'a_ram','lname':'a_sharma'},{'sno':102,'fname':'b_sram','lname':'z_sharma'},
+        {'sno':103,'fname':'ghansham','lname':'sharma'}, {'sno':104,'fname':'x_ghansham','lname':'sharma'}, {'sno':105,'fname':'f_ghansham','lname':'sharma'},
+        {'sno':106,'fname':'d_ghansham','lname':'sharma'},{'sno':107,'fname':'m_ghansham','lname':'sharma'},{'sno':108,'fname':'k_ghansham','lname':'sharma'}
+    ,{'sno':109,'fname':'r_ghansham','lname':'sharma'},{'sno':110,'fname':'s_ghansham','lname':'sharma'},{'sno':111,'fname':'t_ghansham','lname':'sharma'}
+,{'sno':112,'fname':'u_ghansham','lname':'sharma'},{'sno':113,'fname':'v_ghansham','lname':'sharma'}]
+    });
+        </script>
+        <body ng-app="mousam" ng-controller="sharma">
+           <center> <h1>WELCOME</h1></center>
+          Search Name<input type="text" ng-model="fdata.fname"><br>
+                Sorting By::
+            <select ng-model="sl">
+                <option>sno</option>
+                <option>fname</option>
+                <option>lname</option>
+            </select>
+            <br><br>
+            asc. order<input type="radio" ng-model="asc" value="">
+            dec. order<input type="radio" ng-model="asc" value="true"><br><br>
+                    
+                <table border="1px">
+                    <tr ng-repeat="e in arr |filter:fname|orderBy : sl:asc">
+                    
+                        <td>{{e.sno}}</td>
+                        <td>{{e.fname}}</td>
+                        <td>{{e.lname}}</td>
+                    </tr>
+                    </table>
+                    
+        </body>
+    </html>

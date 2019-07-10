@@ -1,0 +1,37 @@
+ <!DOCTYPE html>
+<html lang="en-US">
+<script src="angular.min.js"></script>
+<script>
+    var myApp=angular.module("demoApp",[]);
+myApp.controller("demoController",function($scope){
+    $scope.message="welcome";
+    $scope.change=function(){
+            if($scope.message=='welcome')
+                $scope.message="Hello";
+            else
+                $scope.message='welcome';
+    }
+
+    $scope.square=function(v){
+        $scope.sqValue=v*v;
+    }
+
+    $scope.upper=function(txt){
+        $scope.nm=txt.toUpperCase();
+    }
+});
+</script>
+<body ng-app="demoApp" ng-controller="demoController">
+     
+     <p>{{count}} <button ng-click="count = count + 1" ng-init="count=0">Click</button></p>
+<hr>
+     {{message}}
+     <br><button ng-click="change()">Change Message</button>
+<hr>
+<input type="text" ng-model="no"><button ng-click="square(no)">Get Square of {{no}}</button>
+<br>{{sqValue}}
+<hr>
+Enter name
+<input type="text" ng-model="nm" ng-blur="upper(nm)">
+</body>
+</html>

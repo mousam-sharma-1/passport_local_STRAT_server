@@ -1,0 +1,22 @@
+window.lc = window.lc || {};lc.query = "&";lc.service = "tracker";lc.url = "hp.lingscars.com";// Load the inject array
+if (typeof lcInject === 'undefined') {
+    lcInject = {};
+}
+lcInject[lc.service] = {
+    script: document.createElement('script'),
+    el: document.getElementById('lc-' + lc.service),
+    token: 'public'
+};
+
+// Load token if available
+if (lcInject[lc.service].el != null) {
+    if (typeof lcInject[lc.service].el.getAttribute('data-token') !== 'undefined' && lcInject[lc.service].el.getAttribute('data-token')) {
+        lcInject[lc.service].token = lcInject[lc.service].el.getAttribute('data-token');
+    }
+}
+
+// Setup new element to be loaded.
+lcInject[lc.service].script.src = '//' + lc.url + '/cdn/js/' + lcInject[lc.service].token + '/' + lc.service + '.js?t=' + (new Date().getTime()) + lc.query;
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.appendChild(lcInject[lc.service].script);
+});

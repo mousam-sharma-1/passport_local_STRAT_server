@@ -1,0 +1,29 @@
+<html>
+    <body>
+        <h1 id="n"></h1>
+<input type="checkbox" id="c1" onclick="x()">hello
+<input type="checkbox" id="c2" onclick="x()">hello@2
+<select id="cts" value="1st">
+<option value="2nd">mousam</option>
+<option value="3rd">manali</option>    
+<option value="4th">vipin_ji</option></select>
+<button onclick="f()">DOne</button>
+    </body>
+    <script>
+        function f(){
+var ops=document.getElementById("cts").options;
+var i=document.getElementById("cts").options.selectedIndex;
+alert(ops[i].value+"::"+ops[i].innerHTML);
+        }
+        function x(){
+var x1=document.getElementById("c1");
+if(x1.checked==true)
+    document.getElementById("n").innerHTML="NICE WORK";
+    else{
+        var x2=document.getElementById("c2");
+        if(x2.checked==true)
+    document.getElementById("n").innerHTML="NICE WORK Again";
+    }
+}
+    </script>
+</html>

@@ -1,0 +1,36 @@
+<html>
+    <body>      
+<input type="text" id="c1">NO.1<br><br>
+<input type="text" id="c2">NO.2<br>
+<input type="radio" name="a" class='cs' onclick="sel()" value="A">ADD
+<input type="radio" name="a" class='cs' onclick="sel()" value="M">MUL
+<input type="radio" name="a" class='cs' onclick="sel()" value="D">DIV
+<input type="radio" name="a" class='cs' onclick="sel()" value="S">SUB<br><hr>
+<h1 id="n"></h1>
+</body>   
+<script>
+   
+function sel(){
+    var a=parseInt(document.getElementById("c1").value);
+    var b=parseInt(document.getElementById("c2").value);
+    var op=document.getElementsByClassName("cs")[0];
+    var op1=document.getElementsByClassName("cs")[1];
+    var op2=document.getElementsByClassName("cs")[2];
+    var op3=document.getElementsByClassName("cs")[3];
+
+if(op.checked==true){
+    document.getElementById("n").innerHTML=a+b;
+}  
+else if(op1.checked==true){
+    document.getElementById("n").innerHTML=a*b; 
+}
+else if(op2.checked==true){
+    document.getElementById("n").innerHTML=a/b; 
+}
+else if(op3.checked==true){
+    document.getElementById("n").innerHTML=a-b; 
+}
+}
+</script>
+ 
+</html>

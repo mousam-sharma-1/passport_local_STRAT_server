@@ -1,0 +1,13 @@
+button {
+    background: white;
+    border: none;
+}
+table {
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    max-width: 200px;
+}
+button:hover {
+    cursor: pointer;
+}

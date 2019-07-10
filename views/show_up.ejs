@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+        <head>   
+            <title>update</title>
+            <meta name="viewport" content="width=device-width", initial-scale="1">
+           
+        </head>
+        <body>
+                <form action="/doupdate" method="POST">
+                   <input type="hidden" name="aid" value="<%=p._id%>">
+                    name <input type="text" name="aname" value="<%=p.name%>">
+                    price <input type="text" name="aprice" value="<%=p.price%>">
+                    qty <input type="text" name="aqty" value="<%=p.qty%>">
+                    <input type="submit">
+                </form>
+            </body>
+    </html>

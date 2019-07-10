@@ -1,0 +1,21 @@
+ <!DOCTYPE html>
+<html lang="en-US">
+<script src="angular.min.js"></script>
+<script>
+//define a module
+var myApp=angular.module("demoApp",[]);
+myApp.controller("demoController",function($scope){
+var arr=[
+        {name:'ram',city:'indore',salary:43000},
+        {name:'mohan',city:'Akola',salary:3000},
+        {name:'suresh',city:'varanasi',salary:2000},
+        {name:'punit',city:'mumbai',salary:23000}];
+$scope.emps=arr;
+});
+</script>
+<body ng-app="demoApp" ng-controller="demoController">
+    <table border="1" width="400">
+		<tr ng-repeat='e in emps'><td>{{$index+1}}</td><td>{{e.name}}</td><td>{{e.city}}</td><td>{{e.salary}}</td></tr>
+	</table>
+</body>
+</html>

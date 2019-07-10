@@ -1,0 +1,34 @@
+<html>
+    <head>
+            <title>paging</title>
+    <script src="angular.min.js"></script>
+        </head>
+        <script>
+        var app=angular.module('mousam',[])
+        app.controller("sharma",function($scope){
+            $scope.a = 0;
+            $scope.arr=[{'sno':101,'fname':'a_ram','lname':'a_sharma'},{'sno':102,'fname':'b_sram','lname':'z_sharma'},
+        {'sno':103,'fname':'ghansham','lname':'sharma'}, {'sno':104,'fname':'x_ghansham','lname':'sharma'}, {'sno':105,'fname':'f_ghansham','lname':'sharma'},
+        {'sno':106,'fname':'d_ghansham','lname':'sharma'},{'sno':107,'fname':'m_ghansham','lname':'sharma'},{'sno':108,'fname':'k_ghansham','lname':'sharma'}
+    ,{'sno':109,'fname':'r_ghansham','lname':'sharma'},{'sno':110,'fname':'s_ghansham','lname':'sharma'},{'sno':111,'fname':'t_ghansham','lname':'sharma'}
+,{'sno':112,'fname':'u_ghansham','lname':'sharma'},{'sno':113,'fname':'v_ghansham','lname':'sharma'}]     
+$scope.f=function(arg) {
+    $scope.a = arg;
+};
+
+        });
+        </script>
+          <body ng-app="mousam" ng-controller="sharma">
+              <h1>WELCOME</h1>
+                <table border="1px">
+                        <tr ng-repeat="e in arr| limitTo:5:a | orderBy :'name'">
+                            <td>{{e.sno}}</td>
+                            <td>{{e.fname}}</td>
+                            <td>{{e.lname}}</td>
+                        </tr>
+                    </table>
+                    <a href ng-click="f(0)">1</a>
+                    <a href ng-click="f(4)">2</a>
+                    <a href ng-click="f(9)">3</a>
+          </body>
+    </html> 

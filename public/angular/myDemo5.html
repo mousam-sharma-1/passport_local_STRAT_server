@@ -1,0 +1,23 @@
+ <!DOCTYPE html>
+<html lang="en-US">
+<script src="angular.min.js"></script>
+<script>
+//define a module
+var myApp=angular.module("demoApp",[]);
+myApp.controller("demoController",function($scope){
+var arr=['ram','mohan','sohan','Geeta','Puneet'];
+$scope.names=arr;
+});
+</script>
+<body ng-app="demoApp" ng-controller="demoController">
+
+		<p ng-repeat='n in names'>{{n}}</p>
+    <ul>
+		<li ng-repeat='n in names'>{{n}}</li>
+	</ul>
+
+	<table border="1">
+		<tr  ng-repeat="e in names"><td>{{e}}</td></tr>
+	</table>
+</body>
+</html>

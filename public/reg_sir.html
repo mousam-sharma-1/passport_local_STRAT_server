@@ -1,0 +1,53 @@
+<html>
+<head>
+        <script src="angular/angular.min.js"></script>
+        <script src="angular/angular.js"></script>
+<h1>CREATE ACC.</h1>    
+</head>
+<body ng-app="mousam" ng-controller="sharma">
+        <form action="/doreg" method="GET">
+        USER_ID<input type="text" ng-model="user.user_id">
+        {{user}}
+       PASSWORD<input type="password" ng-model="user.password">
+        <input type="submit" value="create" onclick="save_data(user)"><br><br>
+        <table border="2px">
+                <th>S.No.</th><th>User_ID</th><th>PASSWORD</th>
+                <tr ng-repeat="(k,v) in states">
+                        <td>{{k+1}}</td>
+                        <td>{{v.id}}</td>
+                        <td>{{v.password}}</td>
+
+                </tr>
+        </table>
+</form>    
+</body>
+<script>
+var myapp= angular.module("mousam",[]);
+myapp.controller("sharma",function($scope,$http){
+        var baseUrl='http://localhost:3000/';
+        load();
+
+        function save_data(user){
+
+               $http.get(baseUrl+"doreg?").then(function(response){
+                $scope.msg=response.data ;
+
+                load();
+    
+    });
+  
+        }
+
+        function load(){
+                
+        $http.get(baseUrl+"reg_d").then(function(response){
+                $scope.states=response.data ;
+                
+    $scope.ale=JSON.stringify($scope.states);
+    
+    });
+
+        }
+});
+</script>
+</html>

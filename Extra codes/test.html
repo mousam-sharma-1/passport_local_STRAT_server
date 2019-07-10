@@ -1,0 +1,29 @@
+<html>
+<body>
+<head>
+<style>
+    body {
+        background-color:aqua;
+    }
+h1 {
+color:blueviolet;
+text-align: center;
+}
+</style>
+</head>
+<h1>MOUSAM</h1>
+<form action="demo.html">
+<input id="a" type="text" value="num1">
+<input id="c" type="text" value="num2">
+<input type="submit" value="ADD" onclick="abc()">
+</form>
+<h1 id="b"></h1>
+</body>
+<script>
+function abc(){
+   var x=parseInt(document.getElementById('a').value);
+   var y=parseInt(document.getElementById('c').value);
+document.getElementById('b').innerHTML=x+y;
+}
+</script>
+</html>

@@ -1,0 +1,15 @@
+<html>
+    <body>
+    <h1 class='c1'>class1</h1>
+    <h1 class='c1'>class1</h1>
+    <h2 id="c2">ID2</h2>
+    <h2 id="c2">ID2</h2>
+    <button onclick="see()">CLICK</button>
+    </body>
+        <script>
+function see(){
+    document.getElementsByClassName('c1')[0].innerHTML="h1-CLASS";
+    document.getElementById("c2").innerHTML="hello-ID";
+}
+        </script>
+</html>

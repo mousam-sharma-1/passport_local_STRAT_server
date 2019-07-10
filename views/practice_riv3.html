@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <h1 id="n"></h1>
+<input type="checkbox" id="c1" onclick="x()">hello
+<input type="checkbox" id="c2" onclick="x()">hello@2
+    </body>
+    <script>
+        function x(){
+var x1=document.getElementById("c1");
+if(x1.checked==true)
+    document.getElementById("n").innerHTML="NICE WORK";
+    else{
+        var x2=document.getElementById("c2");
+        if(x2.checked==true)
+    document.getElementById("n").innerHTML="NICE WORK Again";
+    }
+}
+    </script>
+</html>

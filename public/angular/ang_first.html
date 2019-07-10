@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Document</title>
+    <script src='angular.min.js'></script>
+</head>
+<style>
+p {
+    width:300px;;
+    height:400px;
+    background:red;
+}
+</style>
+<body ng-app ng-init='ram="hello";clk=true;hclk=false'>
+    <input type="text" ng-model="ram">
+   {{ram}}
+   <h1 ng-bind="ram"></h1>
+   <input type="radio" name="1" ng-model="clk">show
+   <input type="radio" name="1" ng-model="hclk">hide
+   <p id="box" ng-show="clk" ng-hide="hclk" ng-bind="ram"></p>
+</body>
+</html>

@@ -1,0 +1,44 @@
+ <!DOCTYPE html>
+<html lang="en-US">
+<script src="angular.min.js"></script>
+<script>
+ var app=angular.module('mousam',[])
+        app.controller("sharma",function($scope){
+            $scope.a = function(){
+                $scope.s="bt";
+            };
+            $scope.b = function(){
+                $scope.s="bth";
+            };
+        });
+  </script>
+<body ng-app 
+ng-init="cts='bpl';chk=true;rbtn='Female';data='welcome'">
+    <h2>ng-init Demo</h2>
+4+8={{4+8}}
+    <br>
+<hr>
+<input type="text" ng-model="data" >
+<p>{{data}}</p>
+<hr>
+<input type="radio" ng-model="rbtn" value="Male">Male 
+<input type="radio" ng-model="rbtn" value="Female">Female 
+<p>{{rbtn}}</p>
+
+<hr>
+<input type="checkbox" ng-model="chk">Is Nri 
+<p>{{chk}}</p>
+
+<hr>
+<select ng-model="cts">
+    <option value="indb">Indore</option>
+    <option value="bpl">Bhopal</option>
+</select>
+<p>{{cts}}</p>
+<br>
+<button ng-show="chk">show_c</button>
+<button ng-hide="chk">hide_c</button>
+<button ng-model="bt" ng-click="">show</button>
+<button ng-model="bth" ng-click="">hide</button>
+</body>
+</html>

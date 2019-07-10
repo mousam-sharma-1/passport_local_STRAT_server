@@ -1,0 +1,31 @@
+<html>
+<body>
+INDORE<input type ="radio" name="rad" class='r1'  onclick="fun()">
+BHOPAL<input type ="radio" name="rad" class='r1'  onclick="fun()">
+UJJAIN<input type ="radio" name="rad" class='r1'  onclick="fun()">
+<p id="x"></p>
+</body>
+<script>
+function fun() {
+var r= document.getElementsByClassName("r1")[0];
+var p= document.getElementsByClassName("r1")[1];
+var q= document.getElementsByClassName("r1")[2];
+if(r.checked==true)
+{
+document.getElementById("x").innerHTML="Indore";
+}
+else if(p.checked==true)
+{
+document.getElementById("x").innerHTML="bhopal";
+}
+else if(q.checked==true)
+{
+document.getElementById("x").innerHTML="ujjain";
+}
+else
+{
+document.getElementById("x").innerHTML="";
+}
+}
+</script>
+</html>
