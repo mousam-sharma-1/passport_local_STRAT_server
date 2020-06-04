@@ -1,0 +1,41 @@
+.main-dash-trans{
+    /* background-color: red; */
+    background-image: linear-gradient(to bottom, transparent , white);
+    height: 720px;
+    position: relative;
+}
+h5{
+    color: white;
+}
+.add-btn{
+    cursor: pointer;
+    width: fit-content;
+    background: white;
+    padding: 14px 23px;
+    position: absolute;
+    font-size: 26px;
+    top: 75%;
+    left: 46%;
+    transform: rotate(0deg);
+    transition: all .5s ease-in;
+}
+.add-btn:hover{
+    background: black;
+    color: white;
+    transform: rotate(360deg);
+    transition: all .5s ease-in;
+}
+.custom-btn{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.container{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.center-heading{
+    font-family: 'Dancing Script', cursive;
+    padding: 15px 20px;
+    font-size: 25px;  
+}
