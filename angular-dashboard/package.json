@@ -1,7 +1,7 @@
 {
   "name": "angular-dashboard",
   "version": "0.0.0",
-  "homepage": "https://mousam-sharma-1.github.io/Dash/",
+  "homepage": "https://mousam-sharma-1.github.io/Dash/angular-dashboard/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
